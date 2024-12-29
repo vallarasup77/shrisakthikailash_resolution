@@ -1,0 +1,158 @@
+/* style.css */
+
+html {
+  /* min-height:100%; */
+  background: url('data:image/svg+xml;utf8,<svg style="transform:rotate(45deg)" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 60"><text x="0" y="25" fill="%23000">SSWC</text></svg>') 0 0/50px 50px;
+  /* update the 50px 50px to control the size */
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-color: #f4f4f4; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  border: 2px solid #111;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input,
+form select,
+form option,
+form textarea,
+form button {
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+form button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border-radius: 100px;
+  border: 2px solid #111;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* Popup Styling */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+.popup button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.popup button:hover {
+  background-color: #45a049;
+}
+
+
+/* General styling for the select dropdown */
+select {
+  width: 100%;
+  /* Makes the select take the full width of its container */
+  padding: 10px;
+  /* Adds padding inside the dropdown */
+  font-size: 16px;
+  /* Adjusts the font size */
+  border: 1px solid #ccc;
+  /* Adds a border around the dropdown */
+  border-radius: 4px;
+  /* Rounds the corners of the dropdown */
+  background-color: #fff;
+  /* Sets a white background */
+  appearance: none;
+  /* Removes default styling (mainly for Webkit browsers) */
+  cursor: pointer;
+  /* Changes the cursor to a pointer when hovered */
+  height: auto;
+  /* Ensures the dropdown height adjusts for multiple selections */
+}
+
+/* Styling for the label */
+label {
+  display: block;
+  margin-bottom: 8px;
+  /* Adds space between the label and the dropdown */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  select {
+    font-size: 14px;
+    /* Smaller font size on smaller screens */
+    padding: 8px;
+    /* Adjust padding on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  select {
+    font-size: 12px;
+    /* Even smaller font size for very small screens */
+    padding: 6px;
+    /* Adjust padding further for tiny screens */
+  }
+}
+
+#otherResolution input {
+  width: 95%;
+}

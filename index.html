@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSWC Salem - Resolution</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>New Year Resolution 2025</h1>
+    <form name="resolution" id="certificate-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Enter Your Name" />
+
+      <label for="photo">Upload Photo:</label>
+      <input type="file" id="photo" name="photo" accept="image/*" required placeholder="Upload Your Photo" />
+
+      <label for="category">Category:</label>
+      <select id="category" name="category" required onchange="checkCategory()">
+        <option value="">Select Category</option>
+        <option value="Students">STUDENT</option>
+        <option value="OTHERS">GENERAL</option>
+      </select>
+
+      <label for="message">Resolution:</label>
+      <select id="message" name="message" required onchange="checkOtherOption()">
+        <option value="">Select Your Resolution</option>
+      </select>
+
+      <!-- Custom Resolution Field -->
+      <div id="otherResolution" style="display: none;">
+        <label for="othermessage">Please specify your resolution:</label>
+        <input type="text" id="othermessage" name="othermessage" placeholder="Enter your resolution">
+      </div>
+
+      <br />
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Popup Modal -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2>Welcome !</h2>
+      <p><strong>Congratulations</strong> <span id="popup-name"></span></p>
+      <p>
+        <strong>Your Resolution is:</strong> <br />
+        <br />
+        <span id="popup-message"></span>
+      </p>
+      <img id="popup-photo" src="" alt="User Photo" style="max-width: 150px; height: auto" />
+      <br />
+      <button id="download-btn">Download Certificate</button>
+      <button id="close-popup" style="background-color: red">Close</button>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+  <script>
+    function checkCategory() {
+      var category = document.getElementById("category").value;
+      var resolutionSelect = document.getElementById("message");
+      var otherResolutionDiv = document.getElementById("otherResolution");
+
+      // Clear existing options
+      resolutionSelect.innerHTML = '<option value="">Select Your Resolution</option>';
+      otherResolutionDiv.style.display = "none"; // Hide custom input field initially
+
+      // Show specific resolution options based on category
+      if (category === "Students") {
+        var studentResolutions = [
+          "I will dedicate 2 hours daily to focused study.",
+          "I will complete one online course every quarter.",
+          "I will join a study group to enhance my learning.",
+          "I will work on improving my note-taking skills.",
+          "I will read one book every month.",
+          "I will learn one new skill related to my career.",
+          "I will participate in internships to gain real-world experience.",
+          "I will take part in extracurricular activities to develop new talents.",
+          "I will focus on improving my confidence and communication skills.",
+          "I will set and achieve short & long term academic goals.",
+          "OTHERS"
+        ];
+        populateResolutionOptions(studentResolutions);
+      } else if (category === "OTHERS") {
+        var generalResolutions = [
+          "I will support and buy Indian products.",
+          "I will contribute to women’s empowerment in my community.",
+          "I will dedicate time to volunteering every month.",
+          "I will start a new creative hobby this year.",
+          "I will focus on my health and wellness.",
+          "I will plan and travel to my favorite destination.",
+          "I will manage my time wisely for personal and professional growth.",
+          "I will focus on improving myself, not comparing myself to others.",
+          "I will practice mindfulness or meditation weekly.",
+          "I will save money and plan better for the future.",
+          "OTHERS"
+        ];
+        populateResolutionOptions(generalResolutions);
+      }
+    }
+
+    function populateResolutionOptions(resolutions) {
+      var resolutionSelect = document.getElementById("message");
+
+      resolutions.forEach(function (resolution) {
+        var option = document.createElement("option");
+        option.value = resolution;
+        option.textContent = resolution;
+        resolutionSelect.appendChild(option);
+      });
+    }
+
+    function checkOtherOption() {
+      var resolution = document.getElementById("message").value;
+      var otherResolutionDiv = document.getElementById("otherResolution");
+
+      if (resolution === "OTHERS") {
+        otherResolutionDiv.style.display = "block";  // Show custom resolution input field
+      } else {
+        otherResolutionDiv.style.display = "none";  // Hide it if other resolutions are selected
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+    integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
